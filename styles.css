@@ -1,0 +1,366 @@
+.ubuntu-light {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.ubuntu-regular {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ubuntu-medium {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.ubuntu-bold {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: ubuntu;
+
+}
+
+img {
+    max-width: 100%;
+}
+
+section {
+    max-width: 1200px;
+    padding: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* [------------------HEADER-------------------] */
+
+header {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header input {
+    width: 350px;
+    padding: 10px;
+    padding-right: 35px;
+    border-radius: 5px 0px 0px 5px;
+    border: 0px;
+    font-size: 1rem;
+}
+
+.icono-carrito {
+    width: 40px;
+    font-size: 30px;
+}
+
+.btn-lupa {
+    background-color: #eee;
+    padding: 14px 20px;
+    margin: auto;
+    border: 0px;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.fa-solid:hover {
+    transform: scale(1.2);
+}
+
+.btn-carrito {
+    font-size: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+.icono-carrito {
+    padding-right: 50px;
+}
+
+.buscador {
+    background-color: #eee;
+    padding: 12px;
+    border-radius: none;
+    border: none;
+    outline: none;
+}
+
+.buscador:focus {
+    border: 2px solid #00CAFC ;
+}
+
+.usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: #00CAFC;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    padding: 10px 13px;
+    border: none;
+    gap: 10px;
+}
+
+#img-us {
+    font-size: 20px;
+}
+
+.imagen-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    width: 400px;
+}
+
+/* [------------------MENU DE NAVEGACION-------------------] */
+
+.palabras-nav {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.palabras-nav:hover {
+    color: white;
+}
+
+nav {
+    background-color: #00CAFC;
+    padding: 20px 200px;
+    margin: 10px 0px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* [------------------PAGINA DE PRODUCTO-------------------] */
+
+.conteiner-principal {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
+}
+
+.titulo {
+    padding: 15px;
+    font-size: 25px;
+}
+
+.precio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border-bottom: 2px solid #999;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.metodos-pagos {
+    font-size: 10px;
+}
+
+.add-carrito {
+    border: none;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00CAFC;
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.add-carrito:hover {
+    color: white;
+}
+
+.contador-carrito {
+    padding: 15px;
+    display: flex;
+    gap: 20px;
+    border-bottom: 2px solid #999;
+}
+
+.input-cantidad {
+    background-color: #f7f7f7;
+    border: none;
+    padding: 10px;
+    width: 60px;
+    height: 100%;
+    color: #666;
+    font-weight: 500;
+}
+
+.lista-descripcion {
+    padding-left: 10px;
+}
+
+.descripcion {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #999;
+    padding: 15px;
+    color: #888;
+}
+
+.titulo-descripcion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagina-oficial {
+    padding-top: 15px;
+}
+
+.texto-descripcion,
+.texto-resenas {
+    font-size: 13px;
+    color: #252525;
+    line-height: 22px;
+    margin-top: 25px;
+}
+
+.compartir {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 2px solid #999;
+}
+
+.compartir span {
+    font-weight: 300;
+    color: #252525;
+}
+
+.botones-social {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.caja-comentarios {
+    display:flex;
+    flex-direction: column;
+}
+
+.btn-enviar-comentario {
+    display: inline-block;
+    padding: 10px 50px;
+    font-weight: 700;
+    background-color: #00CAFC;
+    color: black;
+    border: none;
+    cursor: pointer;
+} 
+
+.enviar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* [------------------PAGINA DE INICIO-------------------] */
+
+.conteiner-items {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 50px;
+    padding-top: 15px;
+    margin: 0px 50px;
+}
+
+.nombre-producto {
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+}
+
+.item {
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.10);
+}
+
+.item img {
+    width: 80%;
+    height: 250px;
+    box-shadow: #eee;
+    object-fit: cover; /*Ajusta las imagen para que no se desproporcionen*/
+    border-radius: 10px 10px 10px 10px;
+    transition: all .5s; /*Hace que la imagen no se agrande de golpe*/
+}
+
+figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-producto {
+    padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.precio-inicio {
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-mas-info {
+    display: inline-block;
+    padding: 10px 50px;
+    font-weight: 700;
+    background-color: #00CAFC;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+figure {
+    overflow: hidden; /*Haace que no se agrande solamente la imagen del contenedor figure*/
+}
+
+.item:hover{
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+.item:hover img {
+    transform: scale(1.2);
+}
+
+.btn-mas-info:hover {
+    color: white;
+}
