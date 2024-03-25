@@ -30,20 +30,15 @@
 
 body {
     font-family: ubuntu;
-
 }
 
 img {
     max-width: 100%;
 }
 
-section {
-    max-width: 1200px;
-    padding: 30px;
-}
-
 a {
     text-decoration: none;
+    color: #211753;
 }
 
 /* [------------------HEADER-------------------] */
@@ -62,7 +57,7 @@ header input {
     padding-right: 35px;
     border-radius: 5px 0px 0px 5px;
     border: 0px;
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 .icono-carrito {
@@ -139,8 +134,9 @@ header input {
     text-decoration: none;
     color: black;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
 }
+
 .palabras-nav:hover {
     color: white;
 }
@@ -160,10 +156,14 @@ nav ul {
 
 /* [------------------PAGINA DE PRODUCTO-------------------] */
 
+
 .conteiner-principal {
     display: grid;
     grid-template-columns: auto auto;
-    gap: 30px;
+    padding-top: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    gap: 50px;
 }
 
 .titulo {
@@ -185,7 +185,7 @@ nav ul {
     font-size: 10px;
 }
 
-.add-carrito {
+.btn-add-carrito {
     border: none;
     padding: 10px;
     display: flex;
@@ -198,13 +198,14 @@ nav ul {
     gap: 10px;
 }
 
-.add-carrito:hover {
+.btn-add-carrito:hover {
     color: white;
 }
 
 .contador-carrito {
     padding: 15px;
     display: flex;
+    align-items: center;
     gap: 20px;
     border-bottom: 2px solid #999;
 }
@@ -286,6 +287,72 @@ nav ul {
 .enviar {
     display: flex;
     justify-content: flex-end;
+}
+/* [------------------SECCION COMENTARIOS-------------------] */
+
+.conteiner-opiniones {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+}
+
+.conteiner-opiniones h2 {
+    margin-bottom: 10px;
+}
+
+.conteiner-opiniones p {
+    margin-bottom: 10px;
+}
+
+.estrellas{
+    transform: rotateY(180deg);
+    text-align: end;
+    margin-bottom: 10px;
+}
+.estrellas input {
+    display: none;
+}
+
+.estrellas label {
+    color: #888;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-left: 8px; 
+    margin-bottom: 5px;
+}
+
+input:checked ~ label,
+input:hover ~ label {
+    color: gold;
+}
+
+.caja-comentarios textarea {
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.caja-comentarios textarea:focus {
+    border: 2px solid #00CAFC ;
+}
+
+.btn-publicar {
+    border: none;
+    margin-top: 5px;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #00CAFC;
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-publicar:hover {
+    color: white;
 }
 
 /* [------------------PAGINA DE INICIO-------------------] */
