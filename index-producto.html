@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<meta charset="">
+	<meta charset="UTF-8">
 	<title>Asus Zenbook Pro 14</title>
 	<link rel="stylesheet" href="styles.css">
 	<script src="https://kit.fontawesome.com/167f11bea6.js" crossorigin="anonymous"></script>
@@ -12,10 +12,44 @@
 </head>
 
 <body>
-	<!--HEADER-->
-	<iframe class="header" src="header.html" frameborder="0"></iframe>
-	<!--Nav-->
-	<iframe class="nav" src="nav.html" frameborder="0"></iframe>
+	<header>
+        <section class="container-header">
+            <div class="imagen-logo">
+                <a href="index.html" target="_top">
+                    <img src="imagenes/logo-marketplace.jpg" alt="logo"/>
+                </a>
+            </div>
+            <div>
+                <form action="#">
+                    <label for="">
+                        <input type="text" class="buscador" id="txtFiltrar" placeholder="Buscar producto" />
+                        <button class="btn-lupa" id="btnFiltrar">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </label>
+                </form>
+            </div>
+            <div>
+                <a href="iniciar-secion.html" target="_top">
+                    <button class="usuario" id="abrirLogin">
+                        <i id="img-us" class="fa-solid fa-circle-user"></i>
+                        <strong>iniciar sesisón</strong>
+                    </button>
+                </a>
+            </div>
+            <div class="icono-carrito">
+                <button class="btn-carrito"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </section>
+    </header>
+	<nav>
+        <ul>
+            <li><a href="#" class="palabras-nav">Productos</a></li>
+            <li><a href="#" class="palabras-nav">Marcas</a></li>
+            <li><a href="#" class="palabras-nav">Ayuda</a></li>
+            <li><a href="#" class="palabras-nav">Contacto</a></li>
+        </ul>
+    </nav>
 	<main>
 		<section class="container-principal">
 			<section class="imagen-producto">
@@ -94,16 +128,22 @@
 				<label for="estrella-5"><i class="fa-solid fa-star"></i></label>
 			</div>
 			<div class="caja-comentarios">
-				<textarea cols="30" rows="5" placeholder="Escribe tu comentario aquí"></textarea>
-				<button class="btn-publicar">Publicar</button>
+				<textarea id="comentario" cols="30" rows="5" placeholder="Escribe tu comentario aquí"></textarea>
+			</div>
+			<div class="caja-btn-publicar">
+				<button id="btn-publicar" class="btn-publicar">Publicar</button>
+			</div>
+			<h3 id="cantidadComentarios">
+				<!-- xx comentarios -->
+			</h3>
 			<div id="divComentarios">
+				<!-- Comentarios -->
 			</div>
-			</div>
-		</section>
+		</section>		
 	</main>
 	<footer>
 	</footer>
-	<script src="script.js"></script>
+	<script src="producto.js"></script>
 </body>
 
 </html>

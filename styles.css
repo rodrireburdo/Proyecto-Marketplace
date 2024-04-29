@@ -55,6 +55,10 @@ a {
 
 header {
   max-width: 1200px;
+  height: 80px;
+}
+
+.container-header {
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -63,7 +67,7 @@ header {
 
 .header {
   width: 100%;
-  height: 80px;
+  height: 73px;
 }
 
 header input {
@@ -290,11 +294,6 @@ nav ul {
   align-items: center;
 }
 
-.caja-comentarios {
-  display: flex;
-  flex-direction: column;
-}
-
 .btn-enviar-comentario {
   display: inline-block;
   padding: 10px 50px;
@@ -344,8 +343,8 @@ nav ul {
   margin-bottom: 5px;
 }
 
-input:checked ~ label,
-input:hover ~ label {
+.estrellas input:checked ~ label,
+.estrellas input:hover ~ label {
   color: gold;
 }
 
@@ -361,9 +360,10 @@ input:hover ~ label {
   border: 2px solid #00cafc;
 }
 
+
 .btn-publicar {
   border: none;
-  margin-top: 5px;
+  margin-bottom: 10px;
   padding: 10px 20px;
   justify-content: center;
   background-color: #00cafc;
@@ -372,27 +372,55 @@ input:hover ~ label {
   cursor: pointer;
 }
 
-.btn-publicar:hover {
-  color: white;
+.caja-btn-publicar {
+  display: flex;
+  justify-content: flex-end;
 }
 
 
-/* [------------------sliders-------------------] */
+.btn-publicar:hover {
+  color: white;
+}
+/* [------------------COMENTARIOS INGRESADOS-------------------] */
 
+.comentario {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
 
-.slider {
-  width: 400px;
-  height: 400px;
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  background-color: #252525;
-  scroll-snap-type: x mandatory;
+.comentario p {
+  font-size: 14px;
+  color: #333;
+}
+
+.UsuarioComentario {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.btnEliminarComentario {
+  border: none;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  justify-content: center;
+  background-color: #00cafc;
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 /* [------------------PAGINA DE INICIO-------------------] */
 
-.container-items {
+#cantidad-articulos {
+  margin: 20px 50px;
+  font-weight:500 ;
+}
+
+.container-productos {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 50px;
@@ -400,34 +428,41 @@ input:hover ~ label {
   margin: 0px 50px;
 }
 
-.nombre-producto {
+.nombreProducto {
+  margin-top: 5px;
   font-weight: 700;
   font-size: 25px;
   text-align: center;
+
 }
 
-.item {
+.producto {
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
 }
 
-.item img {
-  width: 80%;
+.producto img {
+  min-width: 80%;
   height: 250px;
   box-shadow: #eee;
   object-fit: cover; /*Ajusta las imagen para que no se desproporcionen*/
   border-radius: 10px 10px 10px 10px;
   transition: all 0.5s; /*Hace que la imagen no se agrande de golpe*/
+  z-index: -1; /*Hace que las imagen queden atras de las letras*/
 }
 
 figure {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%; /* Establecer un ancho máximo del 100% para que la imagen se ajuste al contenedor */
+  height: auto;
+  width: auto;
 }
 
-.info-producto {
-  padding: 15px 30px;
+.infoProducto {
+  padding: 5px 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -435,13 +470,19 @@ figure {
   gap: 10px;
 }
 
-.precio-inicio {
-  font-size: 25px;
+.precioProducto {
+
+  font-size: 20px;
   display: flex;
   justify-content: center;
+  color: green;
 }
 
-.btn-mas-info {
+.masInfo {
+
+}
+
+.btnMasInfo {
   display: inline-block;
   padding: 10px 50px;
   font-weight: 700;
@@ -451,18 +492,103 @@ figure {
   cursor: pointer;
 }
 
-figure {
-  overflow: hidden; /*Hace que no se agrande solamente la imagen del contenedor figure*/
-}
-
-.item:hover {
+.producto:hover {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.item:hover img {
+.producto:hover img {
   transform: scale(1.2);
 }
 
-.btn-mas-info:hover {
+.btnMasInfo:hover {
   color: white;
+}
+
+/* [------------------INICIO DE SESION-------------------] */
+
+
+.btn-cerrar {
+  display: flex;
+  justify-content: end;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.formulario h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 28px;
+}
+
+.formulario label {
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 16px;
+}
+
+.formulario input[type="text"],
+.formulario input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.formulario input[type="text"]:focus,
+.formulario input[type="password"]:focus {
+  border-color: #007bff;
+}
+
+.recordarContracena {
+  margin-bottom: 20px;
+  text-align: right;
+  color: #888;
+  font-size: 14px;
+}
+
+.formulario input[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+}
+
+.formulario input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.registrarse {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.registrarse a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.registrarse a:hover {
+  color: #0056b3;
 }
