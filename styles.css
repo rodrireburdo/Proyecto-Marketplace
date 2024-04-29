@@ -54,12 +54,11 @@ a {
 /* [------------------HEADER-------------------] */
 
 header {
-  max-width: 1200px;
+  margin: 0px 40px;
   height: 80px;
 }
 
 .container-header {
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -438,18 +437,15 @@ nav ul {
 
 .producto {
   border-radius: 10px 10px 10px 10px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.4s;
   max-width: 400px;
 }
 
 .producto img {
-  min-width: 80%;
   height: 250px;
-  box-shadow: #eee;
   object-fit: cover; /*Ajusta las imagen para que no se desproporcionen*/
   border-radius: 10px 10px 10px 10px;
-  transition: all 0.5s; /*Hace que la imagen no se agrande de golpe*/
-  z-index: -1; /*Hace que las imagen queden atras de las letras*/
 }
 
 figure {
@@ -458,7 +454,6 @@ figure {
   align-items: center;
   max-width: 100%; /* Establecer un ancho máximo del 100% para que la imagen se ajuste al contenedor */
   height: auto;
-  width: auto;
 }
 
 .infoProducto {
@@ -471,7 +466,6 @@ figure {
 }
 
 .precioProducto {
-
   font-size: 20px;
   display: flex;
   justify-content: center;
@@ -479,7 +473,7 @@ figure {
 }
 
 .masInfo {
-
+  margin: 15px;
 }
 
 .btnMasInfo {
@@ -493,11 +487,7 @@ figure {
 }
 
 .producto:hover {
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.producto:hover img {
-  transform: scale(1.2);
+  box-shadow: 0px 0px 20px #027BC1;
 }
 
 .btnMasInfo:hover {

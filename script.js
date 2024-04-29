@@ -12,7 +12,7 @@ async function mostrarCantidadArticulos() {
 
 async function mostrarArticulos() {
     const response = await fetch('https://my-json-server.typicode.com/agustinruatta/fake_json_server_db/products/');
-const datos = await response.json();
+    const datos = await response.json();
 
 for (const notebook of datos) {
     const producto = document.createElement('div');
