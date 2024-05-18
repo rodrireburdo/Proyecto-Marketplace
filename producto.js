@@ -126,3 +126,89 @@ function eliminarComentario(index) {
         mostrarComentarios();
     }
 }
+
+Vue.createApp({
+    data() {
+        return {
+            id: 1,
+            title: "Notebook HP 14-dq2024la",
+            description: "Computadora HP orientado para gama media. Procesador Intel® Core™ i3 de 11.ª generación.  Windows 10 Home 64.  Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB . Pantalla de 14 pulgadas.",
+            imagenes: [
+                'https://ar-media.hptiendaenlinea.com/catalog/product/8/V/8VW01LA-1_T1615590539.png',
+                'https://www.pcstore.ae/wp-content/uploads/2022/03/2031-3-e1650022838582.jpg',
+                'https://fercomse.com.do/wp-content/uploads/2023/08/c08393101.png',
+            ],
+            factory_url: "https://www.hp.com/ar-es/shop/notebook-hp-14-dq2024la-3v8j6la.html",
+            carroDeCompras: [],
+            indiceImagen: 0,
+            indiceTipoNotebook: 0,
+            notebooksTypes: [
+                {
+                    ramAmount: "8 GB",
+                    price: 98038
+                },
+                {
+                    ramAmount: "16 GB",
+                    price: 122547
+                }
+            ],
+        }
+    },
+
+    created() {
+        this.cargarCarroDeCompras(); // Cargar datos del carrito al crear la instancia de Vue
+    },
+
+    computed: {
+
+        urlImagen() {
+            return this.imagenes[this.indiceImagen];
+        },
+
+        precioNotebook() {
+            return this.notebooksTypes[this.indiceTipoNotebook].price;
+        },
+
+        descriptionItems() {
+            return this.description.split('. ').filter(item => item.trim() !== '');
+        }
+
+    },
+
+    methods: {
+        cambiarImagen(indice) {
+            this.indiceImagen = indice;
+        },
+        aniadirCarrito() {
+            const cantidad = document.getElementById("input-cantidad").value;
+            for (let i = 0; i < cantidad; i++) {
+                const notebookSeleccionada = this.notebooksTypes[this.indiceTipoNotebook];
+                const item = {
+                    img: this.imagenes[0],
+                    title: this.title,
+                    ramAmount: notebookSeleccionada.ramAmount,
+                    price: notebookSeleccionada.price
+                };
+                this.carroDeCompras.push(item);
+                this.guardarCarroDeCompras();
+            }
+        },
+        removerDelCarro(index) {
+            this.carroDeCompras.splice(index, 1);
+            this.guardarCarroDeCompras();
+        },
+        vaciarCarro() {
+            this.carroDeCompras = [];
+            this.guardarCarroDeCompras();
+        },
+        guardarCarroDeCompras() {
+            localStorage.setItem('carroDeCompras', JSON.stringify(this.carroDeCompras));
+        },
+        cargarCarroDeCompras() {
+            const carroGuardado = localStorage.getItem('carroDeCompras');
+            if (carroGuardado) {
+                this.carroDeCompras = JSON.parse(carroGuardado);
+            }
+        }
+    },
+}).mount('#aplicacion')

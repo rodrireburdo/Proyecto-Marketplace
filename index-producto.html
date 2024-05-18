@@ -5,13 +5,14 @@
 	<meta charset="UTF-8">
 	<title>Asus Zenbook Pro 14</title>
 	<link rel="stylesheet" href="styles.css">
+	<script src="https://unpkg.com/vue@3.4.26/dist/vue.global.js"></script>
 	<script src="https://kit.fontawesome.com/167f11bea6.js" crossorigin="anonymous"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body id="aplicacion">
 	<header>
         <section class="container-header">
             <div class="imagen-logo">
@@ -38,7 +39,10 @@
                 </a>
             </div>
             <div class="icono-carrito">
-                <button class="btn-carrito"><i class="fa-solid fa-cart-plus"></i></button>
+				<a href="carrito.html">
+					<button class="btn-carrito"><i class="fa-solid fa-cart-plus"></i></button>
+					<p class="cantVentas">{{carroDeCompras.length}}</p>
+				</a>
             </div>
         </section>
     </header>
@@ -54,25 +58,35 @@
 		<section class="container-principal">
 			<section class="imagen-producto">
 				<figure>
-					<img src="https://www.asus.com/media/Odin/Websites/global/ProductLine/20200824120814.jpg"
-						alt="Imagen Lenovo">
+					<img :src="urlImagen" alt="Imagen Lenovo" id="imagen-notebook">
 				</figure>
-			</section>
-			<section class="informacion-producto">
-				<div class="titulo">
-					<h1>ASUS Zenbook Pro 14 Duo OLED</h1>
+				<div class="imagenes-miniatura">
+					<img v-for="(imagen, indice) in imagenes" class="imagen-miniatura"
+						@mouseover="cambiarImagen(indice)"
+						:src="imagen" :alt="'Imagen computadora ' + indice">
 				</div>
-				<div class="informacion">
-					<div class="precio">
-						<span>$3.550.000</span>
-						<a href="#" class="metodos-pagos">ver metodos de pago</a>
+			</section>
+			<section>
+				<div class="titulo">
+					<h1>{{title}}</h1>
+				</div>
+				<div>
+					<div class="contenedor-precio">
+						<span class="precio-final">
+							Precio ${{ precioNotebook }}
+						</span>
+						<select class="seleccionar-notebook" v-model="indiceTipoNotebook">
+							<option v-for="(notebook, index) in notebooksTypes" :key="index" :value="index">
+								RAM: {{ notebook.ramAmount }}
+							</option>
+						</select>
 					</div>
 				</div>
 				<div class="contador-carrito">
 					<form action="#">
 						<label>
-							<input type="number" placeholder="1" value="1" min="1" max="10" class="input-cantidad">
-							<button class="btn-add-carrito">
+							<input type="number" placeholder="1" value="1" min="1" class="input-cantidad" id="input-cantidad">
+							<button class="btn-add-carrito" @click="aniadirCarrito">
 								<i class="fa-solid fa-cart-plus"> </i>
 								Añadir al carrito
 							</button>
@@ -85,18 +99,12 @@
 					</div>
 					<div class="texto-descripcion">
 						<ul class="lista-descripcion">
-							<li>Sistema Operativo Windows 11 Home </li>
-							<li>Intel® Core™ i7-12700H </li>
-							<li>Pantalla 14.5'' 2.8K (2880 x 1800) OLED 16:10 </li>
-							<li>Gráficos Intel Iris Xe Graphics</li>
-							<li>Memoria 32GB LPDDR5 onboard</li>
-							<li>Almacenamiento 1TB M.2 NVMe™ PCIe® 4.0 SSD</li>
-							<li>Pantalla LED de 14.5</li>
-							<li>Resolución de 2880x1800 px</li>
-							<li>Es táctil y viene con lápiz óptico</li>
+							<li v-for="(item, index) in descriptionItems" :key="index">{{ item }}</li>
 						</ul>
-						<p class="pagina-oficial"> <strong>Pagina Oficial de
-								<a href="https://www.asus.com/ar/" target="_blank">ASUS</a>.</strong>
+						<p class="pagina-oficial"> 
+							<strong>
+								<a :href="factory_url" target="_blank">- Pagina Oficial del fabricante -</a>
+							</strong>
 						</p>
 					</div>
 				</div>

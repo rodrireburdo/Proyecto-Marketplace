@@ -69,18 +69,27 @@ header {
   height: 73px;
 }
 
-header input {
-  width: 350px;
-  padding: 10px;
-  padding-right: 35px;
-  border-radius: 5px 0px 0px 5px;
-  border: 0px;
-  font-size: 16px;
-}
-
 .icono-carrito {
   width: 40px;
   font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cantVentas {
+  border-radius: 50%;
+  font-size: 12px;
+  background-color: #f44336;
+  color: white;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  top: 12px;
+  right: 42px;
+  width: 22px;
 }
 
 .btn-lupa {
@@ -109,10 +118,13 @@ header input {
 
 .buscador {
   background-color: #eee;
-  padding: 12px;
+  padding: 13px;
   border-radius: none;
   border: none;
   outline: none;
+  width: 350px;
+  border-radius: 5px 0px 0px 5px;
+  font-size: 16px;
 }
 
 .buscador:focus {
@@ -182,22 +194,48 @@ nav ul {
 
 .container-principal {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 50% 50%;
   padding-top: 10px;
   margin-left: 100px;
   margin-right: 100px;
   gap: 50px;
 }
 
+.imagen-producto {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.imagenes-miniatura {
+  max-width: 70px;
+  max-height: 70px;
+  gap: 20px;
+  display: flex;
+}
+
+.imagen-miniatura {
+  border: solid 1px #999;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.imagen-miniatura:hover {
+  border: solid 3px #00cafc;
+}
+
+#imagen-notebook {
+  height: 400px;
+}
 
 .titulo {
-  padding: 15px;
+  padding: 10px;
   font-size: 25px;
 }
 
-.precio {
+.contenedor-precio {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 10px;
   padding: 15px;
   border-bottom: 2px solid #999;
@@ -205,8 +243,13 @@ nav ul {
   font-weight: 300;
 }
 
-.metodos-pagos {
-  font-size: 10px;
+.precio-final {
+  color: green;
+  font-weight: 500;
+}
+
+#opciones-notebook {
+list-style-type: none;
 }
 
 .btn-add-carrito {
@@ -234,6 +277,17 @@ nav ul {
   border-bottom: 2px solid #999;
 }
 
+.seleccionar-notebook {
+  border: none;
+  padding: 10px;
+  background-color: #EEEEEE;
+  font-weight: 700;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .input-cantidad {
   background-color: #f7f7f7;
   border: none;
@@ -245,6 +299,7 @@ nav ul {
 }
 
 .lista-descripcion {
+  list-style-type:circle;
   padding-left: 10px;
 }
 
@@ -428,6 +483,7 @@ nav ul {
 }
 
 .nombreProducto {
+  color: black;
   margin-top: 5px;
   font-weight: 700;
   font-size: 25px;
@@ -466,8 +522,8 @@ figure {
 }
 
 .precioProducto {
+  list-style-type: none;
   font-size: 20px;
-  display: flex;
   justify-content: center;
   color: green;
 }
@@ -544,7 +600,7 @@ figure {
   border-color: #007bff;
 }
 
-.recordarContracena {
+.recordarContrasena {
   margin-bottom: 20px;
   text-align: right;
   color: #888;
@@ -581,4 +637,39 @@ figure {
 
 .registrarse a:hover {
   color: #0056b3;
+}
+
+
+/* [------------------CARRO DE COMPRAS-------------------] */
+
+.img-carro {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.contenedor-compras {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-carrito {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.contenedor-carrito {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px 50px;
+}
+
+.btn-vaciar-carro {
+  padding: 5px 5px;
+  font-weight: 700;
+  background-color: #00cafc;
+  border: none;
+  cursor: pointer;
 }

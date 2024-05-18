@@ -10,60 +10,25 @@ async function mostrarCantidadArticulos() {
     document.getElementById('cantidad-articulos').textContent = "CANTIDAD DE ARTICULOS DISPONIBLES: " + cantidadArticulos;
 }
 
-async function mostrarArticulos() {
-    const response = await fetch('https://my-json-server.typicode.com/agustinruatta/fake_json_server_db/products/');
-    const datos = await response.json();
-
-for (const notebook of datos) {
-    const producto = document.createElement('div');
-    producto.className = "producto";
-
-    const figure = document.createElement('figure');
-    figure.className = "img-producto";
-
-    const imagenNotebook = document.createElement('img');
-    imagenNotebook.src = notebook.image_url;
-
-    figure.appendChild(imagenNotebook);
-    producto.appendChild(figure);
-
-    const infoProducto = document.createElement('div');
-    infoProducto.className = "infoProducto";
-
-    const nombreProducto = document.createElement('p');
-    nombreProducto.className = "nombreProducto";
-    nombreProducto.textContent = notebook.title;
-    infoProducto.appendChild(nombreProducto);
-
-    for (const tipoNotebook of notebook.notebooksTypes) {
-        const precioProducto = document.createElement('li');
-        precioProducto.className = "precioProducto";
-        
-        precioProducto.textContent = `Ram: ${tipoNotebook.ramAmount} | $${tipoNotebook.price}`;
-
-        infoProducto.appendChild(precioProducto);
+Vue.createApp({
+    data() {
+        return {
+            id: 1,
+            title: "Notebook HP 14-dq2024la",
+            image_url: "https://ar-media.hptiendaenlinea.com/catalog/product/8/V/8VW01LA-1_T1615590539.png",
+            notebooksTypes: [
+                {
+                    ramAmount: "8 GB",
+                    price: 98038
+                },
+                {
+                    ramAmount: "16 GB",
+                    price: 122547
+                }
+            ],
+        }
     }
+}).mount('#productosContainer')
 
-    const link = document.createElement('a');
-    link.href = "index-producto.html";
-    link.className = "masInfo";
-
-    const button = document.createElement('button');
-    button.className = "btnMasInfo";
-    button.textContent = "Más Información";
-
-    const icon = document.createElement('i');
-    icon.className = "fa-solid fa-plus";
-    button.appendChild(icon);
-
-    link.appendChild(button);
-    infoProducto.appendChild(link);
-
-    producto.appendChild(infoProducto);
-    productosContainer.appendChild(producto);
-
-    }
-}
 
 mostrarCantidadArticulos();
-mostrarArticulos();
