@@ -32,3 +32,5 @@ Vue.createApp({
 
 
 mostrarCantidadArticulos();
+
+

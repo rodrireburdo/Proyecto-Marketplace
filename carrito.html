@@ -38,7 +38,7 @@
             </div>
             <div class="icono-carrito">
                 <button class="btn-carrito"><i class="fa-solid fa-cart-plus"></i></button>
-				<p class="cantVentas">{{carroDeCompras.length}}</p>
+				<p class="cantVentas" id="cantVentas">{{carroDeCompras.length}}</p>
             </div>
         </section>
     </header>
@@ -51,8 +51,20 @@
         </ul>
     </nav>
     <div class="contenedor-carrito">
-        <div>
-            <h2>Carrito de Compras</h2>
+        <div class="titulo-volver">
+            <p class="titulo-carro">Carrito de compras</p>
+            <button class="btn-PagAnterior" onclick="regresar()">
+                <i class="fa-solid fa-arrow-left" ></i>
+            </button>
+        </div>
+        <div class="precio-vaciar">
+            <strong>
+                <p class="precio-total">Total ${{totalCompra}}</p>
+            </strong>
+            <button @click="vaciarCarro" class="btn-vaciar-carro">
+                <i class="fa-solid fa-trash"></i>
+                Vaciar Carro
+            </button>
         </div>
         <div v-if="carroDeCompras.length === 0">
             El carrito está vacío.
@@ -62,14 +74,21 @@
                 <img :src="item.img" alt="Imagen notebook en carrito" class="img-carro">
                 <p>{{ item.title }}</p>
                 <p>RAM: {{ item.ramAmount }}</p>
-                <p>Precio: ${{ item.price }}</p>
-                <button @click="removerDelCarro(index)">Eliminar</button>
+                <p>Precio ${{ item.price }}</p>
+                <button @click="removerDelCarro(index)" class="btn-remover">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
         </div>
-        <button @click="vaciarCarro" class="btn-vaciar-carro">Vaciar Carro</button>
+        <div class="div-btn-comprar">
+            <button class="btn-comprar" id="btn-comprar" >
+                Comprar
+            </button>
+        </div>
     </div>
 
-
+    <script src="carro-compras.js"></script>
     <script src="producto.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

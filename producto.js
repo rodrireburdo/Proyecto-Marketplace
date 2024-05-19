@@ -4,7 +4,10 @@ function iniciar() {
     // Agrego que el botón "Publicar" escuche el click
     document.getElementById("btn-publicar").addEventListener("click", publicarComentario);
     mostrarComentarios();
+
 }
+
+
 
 function publicarComentario() {
     // Obtengo el contenido en el textarea comentario
@@ -171,8 +174,15 @@ Vue.createApp({
 
         descriptionItems() {
             return this.description.split('. ').filter(item => item.trim() !== '');
-        }
+        },
 
+        totalCompra() {
+            let total = 0;
+            for (const compra of this.carroDeCompras) {
+                total += compra.price;
+            }
+            return total;
+        }
     },
 
     methods: {
@@ -209,6 +219,13 @@ Vue.createApp({
             if (carroGuardado) {
                 this.carroDeCompras = JSON.parse(carroGuardado);
             }
-        }
+        },
     },
 }).mount('#aplicacion')
+
+
+// Boton comprar
+document.getElementById("btn-comprar").addEventListener("click", realizarCompra);
+function realizarCompra() {
+    alert("Compra realizada");
+}
